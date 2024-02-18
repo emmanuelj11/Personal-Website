@@ -62,10 +62,10 @@
       </nav><!-- .navbar -->
 
       <div class="social-links">
-        <a href="https://twitter.com/EmmanuelJ____" class="twitter"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://github.com/emmanuelj11" class="facebook"><i class="fab fa-github"></i></a>
-        <a href="https://www.instagram.com/emmanuel_johnson___?igsh=b3hqNXhxcnhva3Ri" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/emmanuel-johnson-a36b6b2b3/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="https://twitter.com/EmmanuelJ____" class="twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com/emmanuelj11" class="facebook" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/emmanuel_johnson___?igsh=b3hqNXhxcnhva3Ri" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/emmanuel-johnson-a36b6b2b3/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
       </div>
 
     </div>
@@ -97,7 +97,7 @@
             <div class="col-lg-6">
               <ul>
                 <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>11 April 2004</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span></span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>https://emmanuelj11.github.io/Personal-Website/</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+91 9633026591</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Ponekkara, Kerala, India</span></li>
               </ul>
@@ -321,10 +321,10 @@
             <i class="bx bx-share-alt"></i>
             <h3>Social Profiles</h3>
             <div class="social-links">
-              <a href="https://twitter.com/EmmanuelJ____" class="twitter"><i class="fa-brands fa-x-twitter"></i>  </a>
-              <a href="https://github.com/emmanuelj11" class="facebook"><i class="fab fa-github"></i></a>
-              <a href="https://www.instagram.com/emmanuel_johnson___?igsh=b3hqNXhxcnhva3Ri" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="https://www.linkedin.com/in/emmanuel-johnson-a36b6b2b3/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="https://twitter.com/EmmanuelJ____" class="twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i>  </a>
+              <a href="https://github.com/emmanuelj11" class="facebook" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://www.instagram.com/emmanuel_johnson___?igsh=b3hqNXhxcnhva3Ri" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/emmanuel-johnson-a36b6b2b3/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
         </div>
@@ -348,17 +348,21 @@
       <form id="submit-form" method="post" role="form" class="php-email-form mt-4" name="submitfrm" action="" >
         <div class="row">
           <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" >
+            <div id="errorname" style="color: red;"></div>
           </div>
           <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" >
+            <div id="erroremail" style="color: red;"></div>
           </div>
         </div>
         <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" >
+          <div id="errorsubject" style="color: red;"></div>
         </div>
         <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+          <textarea class="form-control" name="message" rows="5" placeholder="Message" ></textarea>
+          <div id="errormessage" style="color: red;"></div>
         </div>
         <div class="my-3">
           <div class="loading">Loading</div>
@@ -368,46 +372,10 @@
         <div class="text-center"><button type="submit">Send Message</button></div>
       </form>
     </div>
-  </section><!-- End Contact Section -->
-
-  <script>
-    $("#submit-form").submit((e)=>{
-	let name = document.forms.submitfrm.name.value;
-	let email = document.forms.submitfrm.email.value;
-	let subject = document.forms.submitfrm.subject.value;
-	let message = document.forms.submitfrm.message.value;
-	if(name==""){
-		alert("Name Must be filed out");
-		return false;
-	}else if($.isNumeric(name)){
-		alert("The Name can Only conatain Alphabets");
-		return false;
-	} else if(email==""){
-		alert("Email must be filled out");
-		return false;
-	}else if(message==""){
-		alert("message must be filled out");
-		return false;
-	}else{
-	e.preventDefault()
-	$.ajax({
-		url:"https://script.google.com/macros/s/AKfycbxi8pW7AhW350WbOpCsIdPLC48l2MVBsGWo-mUbeSd_Jt5AJP2lHzbPpDtBH6TN7H3P/exec",
-		data:$("#submit-form").serialize(),
-		method:"post",
-		success:function (response){
-			alert("Form submitted successfully")
-			window.location.reload()
-			//window.location.href="https://google.com"
-		},error:function (err){
-			alert("Something Error")
-
-		}
-	})
-	}
-
-	
-})
-  </script>
+  </section>
+  
+  <!-- End Contact Section -->
+  
   
 
   <!-- Vendor JS Files -->
@@ -422,6 +390,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/script.js"></script>
 
 </body>
 
